@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html,body{
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+        padding: 0;
+        background-image:url(11.jpg);
+        background-size:contain;
+        /*background-repeat: no-repeat;*/
+    }
+    .scene{
+        width: 70%;
+        height: 300px;
+        /*border: 1px solid red;*/
+        position: fixed;
+        left: 0;
+        top:0;bottom:0;right: 0;
+        margin: auto;
+        perspective: 1500px;
+    }
+    .ball{
+        position: absolute;
+        left: 0;top:0;
+        width: 100%;height: 100%;
+        transform-style: preserve-3d;
+        animation: first 10s linear infinite;
+    }
+    /*.ball:hover{*/
+    /*transform: rotateY(360deg);*/
+    /*}*/
+    @keyframes first {
+        0%{
+            transform: rotateY(0deg);
+            transform-origin: center center;
+        }
+        25%{
+            transform: rotateY(90deg);
+            transform-origin: center center;
+        }
+        50%{
+            transform: rotateY(180deg);
+            transform-origin: center center;
+        }
+        75%{
+            transform: rotateY(270deg);
+            transform-origin: center center;
+        }
+        100%{
+            transform: rotateY(360deg);
+            transform-origin: center center;
+        }
+    }
+</style>
+<body>
+<div class="scene">
+    <div class="ball"></div>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var clientW=document.documentElement.clientWidth;
+        var clientH=document.documentElement.clientHeight;
+        var arr=[];
+        for(var i=0;i<300;i++){
+            var div=document.createElement("div");
+            div.style.cssText="width:2px;height:8px;background:#fff;position:absolute;left:"+(50+Math.random()*(clientW-100))+"px;top:-8px;filter:blur(1px);transition:transform 5s ease "+(1+4*Math.random())+"s";
+            document.body.appendChild(div);
+            arr.push(div);
+        }
+        setTimeout(function(){
+            for(var i=0;i<arr.length;i++){
+                arr[i].style.transform="translate(0,"+clientH+"px)";
+                arr[i].addEventListener("webkitTransitionEnd",function(){
+                    this.style.transition="none";
+                    this.style.transform="translate(0,0)";
+                    var that=this;
+                    setTimeout(function(){
+                        that.style.transition="transform 3s ease "+(1+4*Math.random())+"s";
+                        that.style.transform="translate(0,"+clientH+"px)";
+                    },0)
+                })
+                arr[i].addEventListener("mozTransitionEnd",function(){
+                    this.style.transition="none";
+                    this.style.transform="translate(0,0)";
+                    var that=this;
+                    setTimeout(function(){
+                        that.style.transition="transform 3s ease "+(1+4*Math.random())+"s";
+                        that.style.transform="translate(0,"+clientH+"px)";
+                    },0)
+                })
+                arr[i].addEventListener("oTransitionEnd",function(){
+                    this.style.transition="none";
+                    this.style.transform="translate(0,0)";
+                    var that=this;
+                    setTimeout(function(){
+                        that.style.transition="transform 3s ease "+(1+1*Math.random())+"s";
+                        that.style.transform="translate(0,"+clientH+"px)";
+                    },0)
+                })
+                arr[i].addEventListener("msTransitionEnd",function(){
+                    this.style.transition="none";
+                    this.style.transform="translate(0,0)";
+                    var that=this;
+                    setTimeout(function(){
+                        that.style.transition="transform 3s ease "+(1+4*Math.random())+"s";
+                        that.style.transform="translate(0,"+clientH+"px)";
+                    },0)
+                })
+            }
+        },0)
+        var ball=document.getElementsByClassName("ball")[0];
+        var radius=400;
+        for(var i=0;i<6;i++){
+            var x=radius*Math.sin(Math.PI/2)*Math.cos(i*60*Math.PI/180);
+            var z=radius*Math.sin(Math.PI/2)*Math.sin(i*60*Math.PI/180);
+            var y=radius*Math.cos(Math.PI/2);
+            var angle=Math.atan2(x,z);
+            var div=document.createElement("div");
+            div.style.cssText="width:200px;height:300px;position:absolute;left:0;bottom:0;right:0;top:0;margin:auto;background-size:cover;background-image:url("+i+".jpg)";
+            div.style.transform="translate3d("+x+"px,"+y+"px,"+z+"px) rotateY("+angle+"rad)";
+            ball.appendChild(div);
+        }
+    }
+</script>
+</html>
