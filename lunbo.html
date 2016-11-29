@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="touch.js"></script>
+</head>
+<style>
+    body,html{
+        padding: 0;margin: 0;
+    }
+    .imgbox{
+        width: 100%;height: 500px;position: relative;overflow: hidden;
+    }
+    .imgbox img{
+        width: 100%;height: 100%;position: absolute;left:0;
+    }
+</style>
+<body>
+<div class="imgbox">
+    <img src="img/2222.jpg" alt="">
+    <img src="img/2223.jpg" alt="">
+    <img src="img/2224.jpg" alt="">
+    <img src="img/2225.jpg" alt="">
+    <img src="img/2226.jpg" alt="">
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var img=document.querySelectorAll("img");
+        var clientw=document.documentElement.clientWidth;
+        for(var i=1;i<img.length;i++){
+            img[i].style.left=clientw+"px";
+        }
+        var now=0;
+        var next=0;
+        function move(){
+        touch.on(".imgbox","dragstart","img",function(e){
+            if(e.distanceX<0){
+            next++;
+            if(next>=img.length){
+                next=0;
+            }
+            }
+            else{
+                next--;
+                if(next<0){
+                    next=img.length-1;
+                }
+            }
+            touch.on(".imgbox","drag","img",function(e){
+                if(e.distanceX<0){
+                img[now].style.left=(e.distanceX)+"px";
+                img[next].style.left=clientw+(e.distanceX)+"px";
+                }
+                else{
+                    img[now].style.left=(e.distanceX)+"px";
+                    img[next].style.left=-clientw+(e.distanceX)+"px";
+                }
+            })
+            touch.on(".imgbox","dragend","img",function(e){
+                if(e.distanceX<0){
+                      if(Math.abs(e.distanceX)>(clientw/2)){
+                          img[now].style.left=-clientw+"px";
+                          img[next].style.left=0;
+                          now=next;
+                      }else{
+                          img[now].style.left=0;
+                          img[next].style.left=clientw+"px";
+                      }
+                }
+                else{
+                    if(Math.abs(e.distanceX)>(clientw/2)){
+                        img[now].style.left=clientw+"px";
+                        img[next].style.left=0;
+                        now=next;
+                    }else{
+                        img[now].style.left=0;
+                        img[next].style.left=-clientw+"px";
+                    }
+                }
+            })
+    })
+        }
+        move();
+    }
+</script>
+</html>
