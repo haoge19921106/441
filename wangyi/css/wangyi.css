@@ -392,9 +392,6 @@ transition-delay: 1s ;opacity: 1;
 #fp-nav li a{
     display: block;width: 21px;height: 21px;position: absolute;right: 0;top:0;border-radius: 50%;background:url(../img/dot.png) 5px 5px no-repeat;
 }
-/*.right li a{*/
-    /*background:red;width: 2px;height:2px;*/
-/*}*/
 #fp-nav li .active{
     background:url(../img/dot.png) 0 bottom no-repeat;
 }
