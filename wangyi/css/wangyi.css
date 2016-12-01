@@ -60,10 +60,7 @@ body,html,a,ul,li,h1,h2,h3,h4,h5,h6{
     bottom:0px;transition-delay:0.7s;opacity: 1;
 }
 .page1_logo{
-    width: 554px;height:176px ;position: absolute;left:50%;top:25%;margin: 0 0 0 -277px;background: url(../img/slogan.png) no-repeat;transition: all 1.7s;transform:scale(0.5,0.5);opacity: 0;
-}
-.active .page1_logo{
-    opacity: 1;transition-delay:0.7s;transform:scale(1,1);
+    width: 554px;height:176px ;position: absolute;left:50%;top:25%;margin: 0 0 0 -277px;background: url(../img/slogan.png) no-repeat;transition: all 3s;transform:scale(0.5,0.5);opacity: 0;
 }
 .page1_p{
     position: absolute;left: 50%;top:50%;width: 600px;color:#94a7c6;font-size: 14px;
