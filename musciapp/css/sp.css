@@ -1,0 +1,87 @@
+body,html{
+	width: 100%;height: 100%;
+}
+body,html,a,li,ul{
+	padding: 0;margin: 0;list-style: none;text-decoration: none;
+}
+.swiper-container{
+	width: 100%;height: 100%;
+}
+.page_one_top{
+	width: 100%;height: 10.9rem;background: #232b36;
+}
+.page_one_bottom{
+	width: 100%;height: 2.44rem;
+}
+.page_one_bottom_left{
+	width: 4.3rem;height: 100%;background: #ffd452;float: left;
+}
+.page_one_bottom_right{
+	width: 3.2rem;height: 100%;background: #fbc930;float: left;
+}
+.img{
+	width: 5.7rem;height: 5.52rem;position: absolute;left: 1.23rem;bottom:2.18rem;
+}
+.img img{
+	width: 100%;height: 100%;
+}
+.page_one_h3{
+	font-size:0.66rem;color:#999396;position: absolute;top:1.67rem;right:1.3rem;
+}
+.page_one_h6{
+	font-size: 0.3rem;color:#c8bebe;position: absolute;top:2.84rem;left:1.6rem;
+}
+.img1{
+	width: 2.02rem;width: 1.78rem;position: absolute;bottom:0.4rem;right:1.4rem;
+}
+.img1 img{
+	width: 100%;height: 100%;
+}
+.page_two_top{
+	background: #232b36;width: 100%;height: 10.15rem;
+}
+.page_two_bottom{
+	height: 3.19rem;width: 100%;
+}
+.page_two_bottom_left{
+	width: 4.3rem;height: 100%;background: #ffd452;float: left;
+}
+.page_two_bottom_right{
+	width: 3.2rem;height: 100%;background: #fbc930;float: left;
+}
+.img2{
+	width: 2.18rem;height: 1.82rem;position: absolute;left: 2.7rem;bottom:2.85rem;
+}
+.img2 img{
+	width: 100%;height: 100%;
+}
+.img3{
+	width: 5.5rem;height: 4.42rem;position: absolute;left:1.67rem;bottom:4.6rem;
+}
+.img3 img{
+	width: 100%;height: 100%;
+}
+.page_two_top_h3{
+	color:#c8bebe;font-size: 0.66rem;position: absolute;left: 1.25rem;top:1.14rem;
+}
+.page_two_top_h6{
+	font-size: 0.66rem;color:#c8bebe;position: absolute;left: 3.23rem;top:1.26rem;
+}
+.page_three{
+	background: #232b36;
+}
+.img4{
+	width: 4.44rem;height: 5.68rem;position: absolute;top:4.83rem;left: 2.01rem;
+}
+.img4 img{
+	width: 100%;height: 100%;
+}
+.page_three_h3{
+	font-size: 0.5rem;color:#c8bebe;position: absolute;top:1.63rem;left: 1rem;
+}
+.page_three_h4{
+	font-size: 0.56rem;color:#07e4ba;font-weight: bold;position: absolute;top:3.08rem;left:2.77rem;
+}
+.page_three_a{
+	display: block;height: 1rem;width: 2.72rem;background: #07e4ba;font-size:0.42rem;line-height: 1rem;text-align: center;color:#45484f;border-radius:0.4rem;position: absolute;left: 0;right:0;bottom:0.94rem;margin: auto;
+}
