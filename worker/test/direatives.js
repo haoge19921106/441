@@ -1,0 +1,30 @@
+angular.module("directives",[]).directive("abc",function(){
+    return {
+        restrict:"ECMA",
+        templateUrl:"demo.html",
+        transclude:true,
+        scope:{
+
+        },
+        link:function(a,b,c){
+            a.data=[
+                {
+                    name:"111",
+                    son:[{name:"1-1"},{name:"1-2"},{name:"1-3"}]
+                },
+                {
+                    name:"222",
+                    son:[{name:"2-1"},{name:"2-2"},{name:"2-3"}]
+                },
+                {
+                    name:"333",
+                    son:[{name:"3-1"},{name:"3-2"},{name:"3-3"}]
+                }
+            ];
+            a.a=0;
+            a.change=function(id){
+                a.a=id;
+            }
+        }
+    }
+})
