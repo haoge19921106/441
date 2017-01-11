@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="todo"></div>
+</body>
+<script type="text/babel">
+    class Title extends React.Component{
+        constructor(){
+            super()
+        }
+        render(){
+            return <div>{this.props.title}</div>
+        }
+    }
+    class Tolist extends React.Component{
+        constructor(){
+            super();
+        }
+        render(){
+            return <ul>
+                {
+                    this.props.listdata.map(function(a,b){
+                        return <li key={b}>{a.con}</li>
+                    })
+                }
+            </ul>
+        }
+    }
+    class Todo extends React.Component{
+        constructor(){
+            super();
+            this.state={text:"",arr:[]}
+        }
+        change(e){
+            var val=e.target.value;
+            this.state.text=val;
+        }
+        click(){
+            var obj={
+                con:this.state.text
+            }
+            this.setState(function(prev){
+                return{
+                    arr:prev.arr.concat(obj)
+                }
+            })
+        }
+        render(){
+            return <div>
+                <Title title="待办事项"/>
+                <Tolist listdata={this.state.arr}/>
+            <input type="text" onChange={this.change.bind(this)}/>
+            <input type="button" value="提交" onClick={this.click.bind(this)}/>
+            </div>
+        }
+    }
+    ReactDOM.render(<Todo/>,document.getElementById("todo"))
+</script>
+</html>

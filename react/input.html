@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="text"></div>
+</body>
+<script type="text/babel">
+    class Text extends React.Component{
+        constructor(){
+            super();
+            this.state={value:""}
+        }
+        change(e){
+            var val=e.target.value;
+            this.setState({value:val})
+        }
+        run(){
+            return { __html:this.state.value };
+        }
+        render(){
+            return <div>
+                <h1>input</h1>
+                <textarea name="" id="" cols="30" rows="10"onChange={this.change.bind(this)}></textarea>
+                <h1>onput</h1>
+                <div dangerouslySetInnerHTML={this.run()}/>
+            </div>
+        }
+    }
+    ReactDOM.render(<Text/>,document.getElementById("text"));
+</script>
+</html>

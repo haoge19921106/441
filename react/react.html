@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<div id="time"></div>
+<div id="box"></div>
+<div id="boxs"></div>
+<script type="text/babel">
+    class Hello extends React.Component {
+        render() {
+            return <div>Hello world!</div>;
+        }
+    }
+
+    ReactDOM.render(<Hello/>, document.getElementById("root"));
+    class Timer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {secondsElapsed: 0};
+        }
+
+        tick() {
+            this.setState((prevState) => ({
+                secondsElapsed: prevState.secondsElapsed + 1
+            }));
+        }
+
+        componentDidMount() {
+            this.interval = setInterval(() => this.tick(), 1000);
+        }
+
+        componentWillUnmount() {
+            clearInterval(this.interval);
+        }
+
+        render() {
+            return (
+                    <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+            );
+        }
+    }
+
+    ReactDOM.render(<Timer />, document.getElementById("time"));
+    class Hi extends React.Component{
+        render(){
+         return <ul>{(this.props.children).map(function(a,b){
+                return <li key={b}>{a}</li>
+            })}
+            </ul>
+        }
+    }
+    ReactDOM.render(<Hi><span>span</span><span>li</span></Hi>,document.getElementById("box"))
+    class Hii extends React.Component{
+        constructor(){
+            super();
+            this.state={name:"张三"}
+        }
+        change(){
+            this.setState({name:"李四"})
+        }
+        render(){
+            return (
+                    <div onClick={this.change.bind(this)}>{this.state.name}</div>
+            )
+        }
+    }
+    ReactDOM.render(<Hii/>,document.getElementById("boxs"))
+</script>
+</body>
+</html>

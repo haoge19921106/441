@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="time"></div>
+</body>
+<script type="text/babel">
+    class Time extends React.Component{
+        constructor(){
+            super();
+            this.state={time:0}
+        }
+        conponentWillMount(){
+            console.log("即将运行")
+        }
+        componentDidMount(){
+            console.log("更新完了")
+            var num=0;
+            setInterval(()=>{
+                num++;
+                this.setState({time:num})
+            },1000)
+        }
+        render(){
+            console.log("渲染中")
+            return  <div >时间：{this.state.time}</div>
+        }
+    }
+    ReactDOM.render(<Time/>,document.getElementById("time"));
+</script>
+</html>
